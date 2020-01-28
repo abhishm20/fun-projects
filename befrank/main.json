@@ -1,0 +1,113 @@
+{
+  "$jason": {
+    "head": {
+      "title": "BeFrank",
+      "description": "Lets ask random funny questions to your friends",
+      "actions": {
+
+        "$foreground": {
+          "type": "$reload"
+        },
+        "$pull": {
+          "type": "$reload"
+        }
+      }
+    },
+    "body": {
+      "header": {
+        "title": {
+          "type": "label",
+          "text": "BeFrank"
+        },
+        "style": {
+          "background": "#111011",
+          "color": "#ffffff"
+        }
+      },
+      "style": {
+        "background": "#ffffff",
+        "border": "none"
+      },
+      "sections": [
+        {
+          "items": [
+            {
+              "type": "vertical",
+              "style": {
+                "padding": "30",
+                "spacing": "20",
+                "align": "center"
+              },
+              "components": [
+                {
+                  "type": "label",
+                  "text": "Welcome",
+                  "style": {
+                    "align": "center",
+                    "size": "22"
+                  }
+                },
+                {
+                  "type": "textfield",
+                  "name": "text",
+                  "value": "",
+                  "placeholder": "Enter Mobile Number",
+                  "style": {
+                    "placeholder_color": "#666666",
+                    "color": "#000000",
+                    "background": "#F1F1F1",
+                    "align": "center",
+                    "font": "HelveticaNeue",
+                    "autocorrect": "true",
+                    "width": "250",
+                    "height": "35",
+                    "size": "16",
+                    "corner_radius": "3"
+                  }
+                },
+                {
+                  "type": "button",
+                  "name": "mobile_number",
+                  "text": "Login",
+                  "placeholder": "Enter Mobile Number",
+                  "style": {
+                    "background": "#000000",
+                    "color": "#ffffff",
+                    "width": "50%",
+                    "height": "30",
+                    "corner_radius": "3"
+                  },
+                  "action": {
+                    "type": "$geo.get",
+                    "success": {
+                      "type": "$util.alert",
+                      "options": {
+                        "title": "Your current coordinate",
+                        "description": "{{$get.mobile_number}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "label",
+              "style": {
+                "align": "right",
+                "padding": "10",
+                "color": "#000000",
+                "font": "HelveticaNeue",
+                "size": "12"
+              },
+              "text": "Check out Live DEMO",
+              "href": {
+                "url": "https://jasonette.github.io/Jasonpedia/demo.json",
+                "fresh": "true"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
